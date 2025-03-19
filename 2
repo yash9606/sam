@@ -1,0 +1,26 @@
+import PromptSync from 'prompt-sync';
+
+const prompt = PromptSync();
+const userInput = prompt("Enter a string: ");
+
+console.log(`Length of string: ${userInput.length}`);
+
+const extracted = userInput.includes('JavaScript') ? 
+    userInput.substring(userInput.indexOf('JavaScript'),
+    userInput.indexOf('JavaScript') + 10) : 'Not found';
+console.log(`Extracted Word: ${extracted}`);
+
+const newString = userInput.replace('JavaScript', 'Node.js');
+console.log(`Modified string: ${newString}`);
+
+function isPalindrome(str) {
+    
+    for (let i = 0; i < str.length / 2; i++) {
+        if (str.charAt(i) !== str.charAt(str.length - 1 - i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(`Is Palindrome: ${isPalindrome(userInput)}`);
