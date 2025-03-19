@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+    <script src="3.js"></script>
+</body>
+</html>
+//js
+
+
+import PromptSync from "prompt-sync";
+const prompt=PromptSync();
+const name=prompt("Enter the name of the Student: ");
+const grade=parseInt(prompt("Enter the grade: "));
+const subjects=prompt("Enter the subjects with comma: ").split(',').map(subject=>subject.trim());
+
+const student={
+    name:name,
+    grade:grade,
+    subjects:subjects,
+    displayinfo:function(){
+        console.log("Student Details: ");
+        console.log(`Name: ${this.name}`);
+        console.log(`Grade: ${this.grade}`);
+        console.log(`Subjects: ${this.subjects.join(",")}`);
+    }
+
+};
+student.passed=student.grade >=40;
+
+student.displayinfo();
+console.log("Complete Students Object: ");
+for(let key in student){
+    if(typeof student[key] !== "function")
+        console.log(`${key}:${typeof student[key]==='object'?JSON.stringify(student[key]): student[key]}`);
+}
